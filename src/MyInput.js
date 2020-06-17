@@ -2,18 +2,21 @@ import React, {Component} from 'react';
 class MyInput extends Component{
 
   state = {
-     input: ''
+     inputdata: '',
+     data: ''
   }
+
 
   handleText = (e) => {
     this.setState({
-      inputdata  : e.target.value
+     inputdata  : e.target.value
     })
   }
 
+
   handleClick = (e) => {
     this.setState({
-      inputdata  : e.target.value
+      data  : e.target.value
     })
   }
 
@@ -26,13 +29,17 @@ class MyInput extends Component{
   render(){
     return(
     <div>
-    <h3> Valeur :  {this.state.inputdata} </h3>
-    <input ref = {this.myRefInput} type="text" onChange={this.handleText} value={this.state.inputdata || ''}/>
-    <button onClick={this.handleClick}> Valider </button>
+    <h1> My Input React component</h1>
+    <input ref = {this.myRefInput} type="text" placeholder="Entrez un pseudo" onChange={this.handleText} value={this.state.inputdata || '' }/>
+    <button onClick={this.handleClick} value={this.state.inputdata}> Valider </button>
+    <h3> Valeur de l'input:  {this.state.inputdata} </h3>
+    <h3> Valeur de l'input stockées:  {this.state.data} </h3>
     </div>
     )
   }
 }
+
+
 
 
 export default MyInput;
